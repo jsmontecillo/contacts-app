@@ -1,0 +1,32 @@
+.screen {
+    background-color: white;
+    height: 595px;
+    border-radius: 10px;
+    width: 250px;
+    margin-left: 565px;
+    margin-top: -684px;
+    overflow: scroll;
+    padding: 25px;
+}
+
+.contact-card {
+    padding: 3px;
+    overflow: hidden;
+    margin: 1px;
+}
+
+.contact-card .profile-pic {
+    float: left;
+}
+
+.contact-card .contact-data {
+    font-size: 12px;
+    float: left;
+    padding-left: 10px;
+    padding-top: 8px;
+    text-align: left;
+}
+
+.collapsed {
+    display: none;
+}

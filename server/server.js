@@ -17,8 +17,8 @@ app.get('/', (req, res) => {
 // create the get request
 app.get('/api/contacts', cors(), async (req, res) => {
   try {
-    const { rows: contact_list } = await db.query('SELECT * FROM contact_list');
-    res.send(contact_list);
+    const { rows: contacts_list } = await db.query('SELECT * FROM contacts_list');
+    res.send(contacts_list);
   } catch (e) {
     return res.status(400).json({ e });
   }

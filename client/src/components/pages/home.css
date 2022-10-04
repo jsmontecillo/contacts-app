@@ -1,0 +1,49 @@
+body {
+    color: white;
+}
+
+.home {
+    background-image: url(wallpaper.jpg);
+    background-size: cover;
+    height: 596px;
+    border-radius: 10px;
+    width: 251px;
+    margin-left: 565px;
+    margin-top: -684px;
+    overflow: scroll;
+    padding: 25px;
+}
+
+.date {
+    margin-top: 50%;
+    font-size: 17px;
+}
+
+.wrapper {
+    margin-top: 30%;
+}
+
+.num {
+    display: inline-block;
+    width: 20px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 50%;
+    border: solid 1px white;
+}
+
+.num:hover{
+    background-color: white;
+    color: black;
+    transition: 1s ease;
+}
+
+.app {
+    display: inline-block;
+    margin: 15px;
+}
+
+img {
+    height: 50px;
+    border-radius: 10px;
+}
