@@ -1,55 +1,65 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import './home.css';
-import ViewContacts from './viewcontacts.js';
-import calendar from './icons/cal.png';
-import photo from './icons/photo.png';
+import MyApps from './apps.js';
 
 function Home() {
-  const [correct, isCorrect] = useState(true);
+  const [correct, setCorrect] = useState(localStorage.getItem('PASSCODE_IS_CORRECT') === 'true');
   const [guess, setGuess] = useState([]);
   let today = new Date();
   let passcode = [3, 6, 9, 9];
 
-  const handleInput = () => {
+  useEffect(() => {
+    console.log('correct', correct);
+    localStorage.setItem('PASSCODE_IS_CORRECT', JSON.stringify(correct));
+  }, [correct])
 
+  const handleGuess = (num) => {
+    setGuess([...guess, num]);
+    if(guess.length === 4) {
+      checkGuess();
+    }
   }
+
+
+  const checkGuess = () => {
+    let same = true;
+    for(let i = 0; i < 4; i++) {
+      if(Number(guess[i]) != passcode[i]){
+        same = false;
+      }
+    }
+    console.log(same);
+    setCorrect(same);
+  }
+
+
 
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   return (
     <div className="home">
     {correct ? (
-      <div className="all-apps">
-        <span className="app">
-          <img src={calendar} alt="calendar" />
-        </span>
-        <span className="app">
-          <img src={photo} alt="photos" />
-        </span>
-        <span className="app">
-
-        </span>
-      
-      </div>
+      <MyApps />
     ) : (
       <>
+      <div className="time">12:00PM</div>
       <div className="date">
       {months[today.getMonth()-1]}
     </div>
     <div className="passcode">
       <div className="wrapper">
-        <span className="num">1</span>
-        <span className="num">2</span>
-        <span className="num">3</span>
+        <span className="num" onClick={() => {handleGuess(1)}}>1</span>
+        <span className="num" onClick={() => {handleGuess(2)}}>2</span>
+        <span className="num" onClick={() => {handleGuess(3)}}>3</span>
         <br/>
-        <span className="num">4</span>
-        <span className="num">5</span>
-        <span className="num">6</span>
+        <span className="num" onClick={() => {handleGuess(4)}}>4</span>
+        <span className="num" onClick={() => {handleGuess(5)}}>5</span>
+        <span className="num" onClick={() => {handleGuess(6)}}>6</span>
         <br/>
-        <span className="num">7</span>
-        <span className="num">8</span>
-        <span className="num">9</span>
+        <span className="num" onClick={() => {handleGuess(7)}}>7</span>
+        <span className="num" onClick={() => {handleGuess(8)}}>8</span>
+        <span className="num" onClick={() => {handleGuess(9)}}>9</span>
         <br/>
-        <span className="num">0</span>
+        <span className="num" onClick={() => {handleGuess(0)}}>0</span>
       </div>
     </div>
     </>

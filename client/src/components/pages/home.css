@@ -38,9 +38,15 @@ body {
     transition: 1s ease;
 }
 
+.all-apps {
+    margin-top: 20px;
+    width: 300px;
+    margin-left:-19px;
+}
+
 .app {
     display: inline-block;
-    margin: 15px;
+    margin: 8px;
 }
 
 img {
