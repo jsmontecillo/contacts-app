@@ -38,7 +38,10 @@ function Home() {
   return (
     <div className="home">
     {correct ? (
+      <>
       <MyApps />
+      <button type="button" onClick={() => {setCorrect(!correct)}} className="lock">Lock</button>
+      </>
     ) : (
       <>
       <div className="time">12:00PM</div>

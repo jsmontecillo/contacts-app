@@ -40,7 +40,6 @@ const AddContacts = () => {
         <div>
             <h1>Add Contact</h1>
             <form onSubmit={handleSubmit}>
-            <fieldset>
                 <label>First Name</label>
                 <input
                     type="text"
@@ -136,7 +135,6 @@ const AddContacts = () => {
                     defaultValue={values.image}
                     onChange={handleInput}
                 />
-                </fieldset>
                 <button type="submit">Submit</button>
             </form>
         </div>

@@ -11,6 +11,7 @@ import camera from './icons/camera.png';
 
 const MyApps = () => {
     const [showApp, setShowApp] = useState(localStorage.getItem('SHOW_APP') === 'true');
+    
     const handleApp = () => {
         setShowApp(showApp => !showApp);
     }
@@ -22,9 +23,8 @@ const MyApps = () => {
     
     return (showApp === true ? (
         <>
-            <h1>Hello</h1>
             <ViewContacts />
-            <button type="button" onClick={() => {handleApp()}}>Return</button>
+            <button type="button" onClick={() => {handleApp()}} >Return</button>
         </>
     ) : (
         <div className="all-apps">
@@ -35,7 +35,7 @@ const MyApps = () => {
           <img src={photo} alt="photos" />
         </span>
         <span className="app">
-          <a href=""><img src={weather} alt="weather"/></a>
+          <a href="http://localhost:3001/"><img src={weather} alt="weather"/></a>
         </span>
         <span className="app">
           <a href=""><img src={contacts} alt="contacts" onClick={() => handleApp()}/></a>

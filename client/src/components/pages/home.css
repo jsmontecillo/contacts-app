@@ -15,7 +15,7 @@ body {
 }
 
 .date {
-    margin-top: 50%;
+    margin-top: 0;
     font-size: 17px;
 }
 
@@ -52,4 +52,17 @@ body {
 img {
     height: 50px;
     border-radius: 10px;
+}
+
+.lock {
+    margin-top: 380px;
+    background-color: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.time {
+    font-size: 50px;
+    margin-top: 80px;
 }

@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import './viewcontacts.css';
 import Default from './default1.png';
-import AddContact from "./addcontact.js";
+import Form from "../form.js";
 
 const ViewContacts = () => {
     const [contacts, setContacts] = useState([{first_name: "Janice", email: "janice@gmail.com"}]);
@@ -26,9 +26,22 @@ const ViewContacts = () => {
     const expandContact = () => {
         setExpanded((expanded) => !expanded);
     }
+
+    const addContact = (newContact) => {
+        setContacts((contacts) => [...contacts, newContact]);
+    };
+
+    const onDelete = async (ID) => {
+        let response = await fetch(`http://localhost:9090/api/contacts/${ID}`, {method: "DELETE"})
+        await response.json();
+        let deleteContacts = [...contacts];
+        let deleted = deleteContacts.filter((contact) => contact.id !== Number(ID));
+        setContacts(deleted);
+    }
+    
     
     return (
-        <div className="screen">
+            <div className="contacts-screen">
             <h1>Your Contacts</h1>
             {contacts.map((contact) => {
                 return (
@@ -41,15 +54,18 @@ const ViewContacts = () => {
                         {contact.cell_number}<br/>
                         <div className={selectedId === contact.id ? '' : 'collapsed'}>
                             {contact.address}
+                            {contact.notes}
+                            <button type="button">Edit</button>
                         </div>
                     </div>
-                    <button onClick={() => {setSelectedId(contact.id)}} className="expand-button">Expand</button>
+                    <button type="button" onClick={() => {setSelectedId(contact.id)}} className={!expanded ? '' : 'hide'}>+</button>
+                    <button type="button" onClick={() => {onDelete(contact.id)}}>x</button>
                 </div>
                 )
             })}
             <button type="button" onClick={() => {setFormClicked(!formClicked)}}>Add Contact</button>
             {formClicked ? (
-                <AddContact />
+                <Form addContact={addContact}/>
             ) : (
                 <>
                 </>
