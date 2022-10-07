@@ -24,8 +24,20 @@ app.get('/api/contacts', cors(), async (req, res) => {
   }
 });
 
-//{first_name: "", last_name: "", relationship: "", email: "", cell_number: "", 
-//home_number: "", address: "", birthday: "", notes: "", image: ""}
+/*
+    const [contact, setContact] = useState({
+    first_name: "", 
+    last_name: "", 
+    relationship: "", 
+    email: "", 
+    cell_number: "", 
+    home_number: "", 
+    address: "", 
+    birthday: "", 
+    notes: "", 
+    image: ""
+  });
+*/
 
 app.post('/api/contacts', cors(), async (req, res) => {
   const newContact = {
@@ -36,15 +48,14 @@ app.post('/api/contacts', cors(), async (req, res) => {
     cell_number: req.body.cell_number,
     home_number: req.body.home_number,
     address: req.body.address,
-    birthday: req.body.birthday,
     notes: req.body.notes,
     image: req.body.image
   };
-  console.log([newContact.first_name]);
+  console.log(newContact);
   try {
     const result = await db.query(
-    'INSERT INTO contacts(first_name, last_name, relationship, email, cell_number, home_number, address, birthday, notes, image) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *',
-    [newContact.first_name, newContact.last_name, newContact.relationship, newContact.email, newContact.cell_number, newContact.home_number, newContact.address, newContact.birthday, newContact.notes, newContact.image]
+    'INSERT INTO contacts_list(first_name, last_name, relationship, email, cell_number, home_number, address, notes, image) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',
+    [newContact.first_name, newContact.last_name, newContact.relationship, newContact.email, newContact.cell_number, newContact.home_number, newContact.address, newContact.notes, newContact.image]
     );
     console.log(result.rows[0]);
     res.json(result.rows[0]);
@@ -56,7 +67,7 @@ app.post('/api/contacts', cors(), async (req, res) => {
 
 app.delete(`/api/contacts/:id`, cors(), async(req,res) => {
   const userId = req.params.id;
-  await db.query('DELETE FROM users WHERE id=$1', [userId]);
+  await db.query('DELETE FROM contacts_list WHERE id=$1', [userId]);
   res.status(200).end();
 });
 // create the POST request

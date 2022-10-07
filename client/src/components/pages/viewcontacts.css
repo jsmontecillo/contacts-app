@@ -10,13 +10,18 @@
 }
 
 .contacts-screen {
-    background-image: url()
+    background-image: url();
+    height: 900px;
+    padding: 20px;
+
 }
 
 .contact-card {
-    padding: 3px;
+    padding: 5px;
     overflow: hidden;
-    margin: 1px;
+    margin: 8px;
+    border-radius: 8px;
+    border: solid 1px white;
 }
 
 .contact-card .profile-pic {
@@ -36,5 +41,5 @@
 }
 
 .hide {
-    visibility: hidden;
+    display:none;
 }

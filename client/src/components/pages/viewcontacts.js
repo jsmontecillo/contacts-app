@@ -19,12 +19,13 @@ const ViewContacts = () => {
     useEffect(() => {
         // useEffect will run getContacts() every time this component loads, as opposed to just the first time it is rendered.
         getContacts();
-    }, []);
+    }, [contacts]);
 
     console.log(contacts);
 
     const expandContact = () => {
-        setExpanded((expanded) => !expanded);
+        setExpanded(true);
+        expandContact();
     }
 
     const addContact = (newContact) => {
@@ -50,16 +51,18 @@ const ViewContacts = () => {
                         <img src={contact.image || Default} alt={contact.first_name} style={{height: "50px", border: "solid 1px black", borderRadius: "50%"}}/>
                     </div>
                     <div className="contact-data">
-                        <span style={{fontSize: "15px"}}>{contact.first_name} {contact.last_name}</span><br/>
+                        <span style={{fontSize: "10px"}}>{contact.first_name} {contact.last_name}</span><br/>
                         {contact.cell_number}<br/>
                         <div className={selectedId === contact.id ? '' : 'collapsed'}>
                             {contact.address}
                             {contact.notes}
-                            <button type="button">Edit</button>
                         </div>
                     </div>
-                    <button type="button" onClick={() => {setSelectedId(contact.id)}} className={!expanded ? '' : 'hide'}>+</button>
-                    <button type="button" onClick={() => {onDelete(contact.id)}}>x</button>
+                    <div style={{margin: "2px"}}>
+                            <span style={{fontSize: "20px"}}>&#9997;</span>
+                            <span onClick={() => {onDelete(contact.id)}} style={{fontSize: "20px"}}>&#128465;</span>
+                        </div>
+                    <button type="button" onClick={() => {setSelectedId(contact.id)}} className={selectedId != contact.id && !expanded ? '' : 'hide'}>+</button>
                 </div>
                 )
             })}

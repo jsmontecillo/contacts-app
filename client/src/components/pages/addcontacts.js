@@ -48,7 +48,7 @@ const AddContacts = () => {
                     required
                     defaultValue={values.first_name} 
                     onChange={handleInput}
-                />
+                /><br/>
                 <label>Last Name</label>
                 <input
                     type="text"
@@ -58,7 +58,7 @@ const AddContacts = () => {
                     required
                     defaultValue={values.last_name} 
                     onChange={handleInput}
-                />
+                /><br/>
                 <label>Relationship</label>
                 <input
                     type="text"
@@ -68,7 +68,7 @@ const AddContacts = () => {
                     required
                     defaultValue={values.relationship}
                     onChange={handleInput}
-                />
+                /><br/>
                 <label>Email</label>
                 <input
                     type="email"
@@ -77,7 +77,7 @@ const AddContacts = () => {
                     required
                     defaultValue={values.email}
                     onChange={handleInput}
-                />
+                /><br/>
                 <label>Cell Number</label>
                 <input
                     type="text"
@@ -85,7 +85,7 @@ const AddContacts = () => {
                     name="cell_number"
                     defaultValue={values.cell_number}
                     onChange={handleInput}
-                />
+                /><br/>
                 <label>Home Number</label>
                 <input
                     type="text"
@@ -94,7 +94,7 @@ const AddContacts = () => {
                     required
                     defaultValue={values.home_number}
                     onChange={handleInput}
-                />
+                /><br/>
                 <label>Address</label>
                 <input
                     type="text"
@@ -104,7 +104,7 @@ const AddContacts = () => {
                     required
                     defaultValue={values.address}
                     onChange={handleInput}
-                />
+                /><br/>
                 <label>Birthday</label>
                 <input
                     type="date"
@@ -114,7 +114,7 @@ const AddContacts = () => {
                     required
                     defaultValue={values.date}
                     onChange={handleInput}
-                />
+                /><br/>
                 <label>Notes</label>
                 <input
                     type="text"
@@ -124,7 +124,7 @@ const AddContacts = () => {
                     required
                     defaultValue={values.notes}
                     onChange={handleInput}
-                />
+                /><br/>
                 <label>Image</label>
                 <input
                     type="text"

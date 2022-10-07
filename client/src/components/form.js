@@ -9,7 +9,6 @@ const Form = (props) => {
     cell_number: "", 
     home_number: "", 
     address: "", 
-    birthday: "", 
     notes: "", 
     image: ""
   });
@@ -40,6 +39,7 @@ const Form = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(contact);
     postContact(contact);
   };
 
@@ -55,7 +55,7 @@ const Form = (props) => {
           required
           value={contact.first_name}
           onChange={handleInput}
-        />
+        /><br/>
         <label>Last Name</label>
         <input
           type="text"
@@ -65,7 +65,7 @@ const Form = (props) => {
           required
           value={contact.last_name}
           onChange={handleInput}
-        />
+        /><br/>
         <label>Relationship</label>
           <input
           type="text"
@@ -75,7 +75,7 @@ const Form = (props) => {
           required
           value={contact.relationship}
           onChange={handleInput}
-        />
+        /><br/>
         <label>Email</label>
         <input
                     type="email"
@@ -84,7 +84,7 @@ const Form = (props) => {
                     required
                     defaultValue={contact.email}
                     onChange={handleInput}
-                />
+                /><br/>
                 <label>Cell Number</label>
                 <input
                     type="text"
@@ -92,7 +92,7 @@ const Form = (props) => {
                     name="cell_number"
                     defaultValue={contact.cell_number}
                     onChange={handleInput}
-                />
+                /><br/>
                 <label>Home Number</label>
                 <input
                     type="text"
@@ -101,7 +101,7 @@ const Form = (props) => {
                     required
                     defaultValue={contact.home_number}
                     onChange={handleInput}
-                />
+                /><br/>
                 <label>Address</label>
                 <input
                     type="text"
@@ -111,17 +111,7 @@ const Form = (props) => {
                     required
                     defaultValue={contact.address}
                     onChange={handleInput}
-                />
-                <label>Birthday</label>
-                <input
-                    type="date"
-                    id="date"
-                    name="date"
-                    placeholder=""
-                    required
-                    defaultValue={contact.date}
-                    onChange={handleInput}
-                />
+                /><br/>
                 <label>Notes</label>
                 <input
                     type="text"
@@ -131,7 +121,7 @@ const Form = (props) => {
                     required
                     defaultValue={contact.notes}
                     onChange={handleInput}
-                />
+                /><br/>
                 <label>Image</label>
                 <input
                     type="text"
