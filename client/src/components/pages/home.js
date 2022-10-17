@@ -35,6 +35,7 @@ function Home() {
 
 
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   return (
     <div className="home">
     {correct ? (
@@ -44,9 +45,9 @@ function Home() {
       </>
     ) : (
       <>
-      <div className="time">12:00PM</div>
+      <div className="time">{today.getHours()}:{today.getMinutes()}</div>
       <div className="date">
-      {months[today.getMonth()-1]}
+      {days[today.getDay()]}, {months[today.getMonth()-1]} {today.getDate()}
     </div>
     <div className="passcode">
       <div className="wrapper">
