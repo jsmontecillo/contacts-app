@@ -23,8 +23,8 @@ const MyApps = () => {
     
     return (showApp === true ? (
         <>
+          <button type="button" onClick={() => {handleApp()}} style={{fontSize: "20px"}}>&#8592;</button>
             <ViewContacts />
-            <button type="button" onClick={() => {handleApp()}} >Return</button>
         </>
     ) : (
         <div className="all-apps">
